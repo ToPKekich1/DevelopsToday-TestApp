@@ -55,7 +55,7 @@ export const Button = styled.button`
 
 export const NotificationMessage = styled.p`
     position: absolute;
-    top: 8%;
+    top: 2%;
     left: auto;
     color: green;
     font-size: 2.5em;

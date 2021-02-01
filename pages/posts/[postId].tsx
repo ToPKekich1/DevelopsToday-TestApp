@@ -24,9 +24,13 @@ const PostPage: React.FC<PostPageProps> = ({ post }: PostPageProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const res = await axios.get<IPost>(`${process.env.API_URL}/${query.postId}`);
-    const post = res.data;
-    return { props: { post } };
+    try {
+        const res = await axios.get<IPost>(`${process.env.API_URL}/${query.postId}`);
+        const post = res.data;
+        return { props: { post } };
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export default PostPage;
