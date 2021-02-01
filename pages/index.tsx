@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { GetServerSideProps } from 'next';
 import { setPosts } from '../redux/blog/actions';
 import axios from 'axios';
-// import Post from '../components/Post/Post';
+import Post from '../components/Post/Post';
 
 interface HomePageProps {
     posts: IPost[];
@@ -17,8 +17,7 @@ const Home: React.FC<HomePageProps> = ({ posts }: HomePageProps) => {
     return (
         <MainLayout>
             {posts.map((post, index) => (
-                // <Post key={index} {...post} />
-                <h1 key={index}>{post.title}</h1>
+                <Post key={index} {...post} />
             ))}
         </MainLayout>
     );
