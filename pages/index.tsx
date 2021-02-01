@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { IPost } from '../redux/blog/types';
 import { useDispatch } from 'react-redux';
@@ -12,8 +12,8 @@ interface HomePageProps {
 }
 
 const Home: React.FC<HomePageProps> = ({ posts }: HomePageProps) => {
-    // const dispatch = useDispatch();
-    // dispatch(setPosts(posts));
+    const dispatch = useDispatch();
+    dispatch(setPosts(posts));
     return (
         <MainLayout>
             {posts.map((post, index) => (

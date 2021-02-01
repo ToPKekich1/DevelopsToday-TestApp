@@ -1,16 +1,22 @@
-import { AppProps } from 'next/dist/next-server/lib/router/router';
+import type { AppProps } from 'next/app';
 import React from 'react';
-import NextNProgress from 'nextjs-progressbar';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 import GlobalStyle from '../styles/global';
+import { createWrapper } from 'next-redux-wrapper';
+import NextNprogress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
-        <>
-            <NextNProgress color="#FF0000" startPosition={0.3} stopDelayMs={200} height={3} />
+        <Provider store={store}>
+            <NextNprogress color="#FF0000" startPosition={0.3} stopDelayMs={200} height={3} />
             <GlobalStyle />
             <Component {...pageProps} />
-        </>
+        </Provider>
     );
 }
 
-export default MyApp;
+const makestore = () => store;
+const wrapper = createWrapper(makestore);
+
+export default wrapper.withRedux(MyApp);

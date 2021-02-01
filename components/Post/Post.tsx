@@ -1,14 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
+import { IPost } from '../../redux/blog/types';
 import { PostWrapper } from './styles';
 
-interface PostPageProps {
-    id?: number | string;
-    title: string;
-    body: string;
-}
-
-const Post: React.FC<PostPageProps> = ({ id, title, body }: PostPageProps) => {
+const Post: React.FC<IPost> = ({ id, title, body }: IPost) => {
     return (
         <Link href={`/posts/${id}`} passHref>
             <PostWrapper>
