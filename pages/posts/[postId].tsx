@@ -1,21 +1,25 @@
-import * as React from 'react';
-import { MainLayout } from '../../components/MainLayout/MainLayout';
+import React from 'react';
+import MainLayout from '../../components/MainLayout/MainLayout';
 import { GetServerSideProps } from 'next';
 import { IPost } from '../../redux/blog/types';
 import axios from 'axios';
 import Link from 'next/link';
-import { ALink } from '../../styles/postPage';
+import { ALink, PostTitle, PostBody } from '../../styles/styles';
 
 interface PostPageProps {
     post: IPost;
 }
 
 const PostPage: React.FC<PostPageProps> = ({ post }: PostPageProps) => {
+    const mainLayaouProps = {
+        title: `Post ${post.title}`,
+    };
+
     return (
-        <MainLayout>
-            <h1>{post.title}</h1>
+        <MainLayout {...mainLayaouProps}>
+            <PostTitle>{post.title}</PostTitle>
             <hr />
-            <p>{post.body}</p>
+            <PostBody>{post.body}</PostBody>
             <Link href="/">
                 <ALink>Back to home</ALink>
             </Link>

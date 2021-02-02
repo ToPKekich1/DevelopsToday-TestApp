@@ -1,14 +1,19 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import React from 'react';
 import { Header, HeaderNav, HeaderNavMenu, HeaderNavItem, Main, Logo } from './styles';
 
 interface Props {
     children: JSX.Element;
+    title: string;
 }
 
-export const MainLayout: React.FC = ({ children }: Props) => {
+const MainLayout: React.FC = ({ children, title = 'Next App' }: Props) => {
     return (
         <>
+            <Head>
+                <title>{title}</title>
+            </Head>
             <Header>
                 <Link href={'/'}>
                     <Logo>DevelopsToday test app</Logo>
@@ -32,3 +37,5 @@ export const MainLayout: React.FC = ({ children }: Props) => {
         </>
     );
 };
+
+export default MainLayout;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainLayout } from '../components/MainLayout/MainLayout';
+import MainLayout from '../components/MainLayout/MainLayout';
 import { IPost } from '../redux/blog/types';
 import { useDispatch } from 'react-redux';
 import { GetServerSideProps } from 'next';
@@ -14,8 +14,13 @@ interface HomePageProps {
 const Home: React.FC<HomePageProps> = ({ posts }: HomePageProps) => {
     const dispatch = useDispatch();
     dispatch(setPosts(posts));
+
+    const mainLayaouProps = {
+        title: 'Home page',
+    };
+
     return (
-        <MainLayout>
+        <MainLayout {...mainLayaouProps}>
             {posts.map((post, index) => (
                 <Post key={index} {...post} />
             ))}
