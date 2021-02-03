@@ -4,7 +4,7 @@ import React from 'react';
 import { Header, HeaderNav, HeaderNavMenu, HeaderNavItem, Main, Logo } from './styles';
 
 interface Props {
-    children: JSX.Element;
+    children: JSX.Element[];
     title: string;
 }
 
