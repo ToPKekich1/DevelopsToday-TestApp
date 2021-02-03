@@ -11,7 +11,7 @@ interface HomePageProps {
     posts: IPost[];
 }
 
-const Home: React.FC<HomePageProps> = ({ posts }: HomePageProps) => {
+const Home: React.FC<HomePageProps> = ({ posts }) => {
     const dispatch = useDispatch();
     dispatch(setPosts(posts));
 

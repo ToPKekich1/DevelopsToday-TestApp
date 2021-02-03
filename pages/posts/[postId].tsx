@@ -10,7 +10,7 @@ interface PostPageProps {
     post: IPost;
 }
 
-const PostPage: React.FC<PostPageProps> = ({ post }: PostPageProps) => {
+const PostPage: React.FC<PostPageProps> = ({ post }) => {
     const mainLayaouProps = {
         title: `Post ${post.title}`,
     };

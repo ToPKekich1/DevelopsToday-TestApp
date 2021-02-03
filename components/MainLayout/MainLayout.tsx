@@ -8,7 +8,7 @@ interface Props {
     title: string;
 }
 
-const MainLayout: React.FC = ({ children, title = 'Next App' }: Props) => {
+const MainLayout: React.FC<Props> = ({ children, title = 'Next App' }) => {
     return (
         <>
             <Head>

@@ -3,7 +3,7 @@ import React from 'react';
 import { IPost } from '../../redux/blog/types';
 import { PostWrapper } from './styles';
 
-const Post: React.FC<IPost> = ({ id, title, body }: IPost) => {
+const Post: React.FC<IPost> = ({ id, title, body }) => {
     return (
         <Link href={`/posts/${id}`} passHref>
             <PostWrapper>
